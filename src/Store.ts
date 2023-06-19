@@ -24,4 +24,9 @@ export default class Store{
            
         return this.store[item].getPrice()
       }
+
+      getQuantity(item:string):number{
+
+        return this.store[item].getQuantity()
+      }
 }
