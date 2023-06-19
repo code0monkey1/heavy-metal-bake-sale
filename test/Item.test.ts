@@ -1,8 +1,8 @@
 import Item from "../src/Item"
-import Purchase from "../src/Purchase"
+import Shop from "../src/Shop"
 import Store from "../src/Store"
 
-describe('Purchase', () => {
+describe('Shop', () => {
         
      describe('when all items are in stock', () => {
        
@@ -17,7 +17,7 @@ describe('Purchase', () => {
                
               //Arrange
                const store = new Store()
-               const purchaseItems = new Purchase(store)
+               const purchaseItems = new Shop(store)
   
               //Act 
               const amount = purchaseItems.getTotal(item)
@@ -39,7 +39,7 @@ describe('Purchase', () => {
           ])('item $items bought for $price',({items,price})=>{
              //Arrange
               const store = new Store()
-               const purchaseItems = new Purchase(store)
+               const purchaseItems = new Shop(store)
   
               //Act 
               const amount = purchaseItems.getTotal(items)
@@ -67,13 +67,14 @@ describe('Purchase', () => {
                
               //Arrange
                const store = new Store()
+               
                store.initialize({
                'B': new Item("Brownie","B",0,0.75),
                'M': new Item("Muffin","M",0,1),
                'C': new Item("Cake Pops","C",0,1.35),
                'W' : new Item('Water','W',0,1.50)
             })
-               const purchaseItems = new Purchase(store)
+               const purchaseItems = new Shop(store)
               
               //Act //Assert
               expect(()=>purchaseItems.getTotal(item)).toThrowError(`The item ${item} is out of stock`)
