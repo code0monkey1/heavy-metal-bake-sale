@@ -28,6 +28,7 @@ export default class BuyItems implements ISale {
         throw new Error(`Item ${items[0]} not found`)
       
       return item.getPrice()
+      
   }
   
   balance(): void {
