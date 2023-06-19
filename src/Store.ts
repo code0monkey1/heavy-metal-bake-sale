@@ -2,7 +2,7 @@ import Item from "./Item";
 
 export default class Store{
     
-      private store :Record<string,Item>={
+      private stock :Record<string,Item>={
                'B': new Item("Brownie","B",48,0.75),
                'M': new Item("Muffin","M",36,1),
                'C': new Item("Cake Pops","C",24,1.35),
@@ -10,17 +10,17 @@ export default class Store{
             };
       
       initialize(items:Record<string,Item> ){
-         this.store=items
+         this.stock=items
       }
 
       hasItem(item:string):boolean{
             
-          return  this.store[item].getQuantity()>0
+          return  this.stock[item].getQuantity()>0
       }
       
       getItem(item:string){
 
-        return this.store[item]
+        return this.stock[item]
       }
 
 
