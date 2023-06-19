@@ -16,7 +16,7 @@ describe('Item', () => {
              const purchaseItems = new Purchase()
 
             //Act 
-            const amount = purchaseItems.getTotalPrice(item)
+            const amount = purchaseItems.getTotal(item)
 
             //Assert
             expect(amount).toBe(price)
@@ -37,7 +37,7 @@ describe('Item', () => {
              const purchaseItems = new Purchase()
 
             //Act 
-            const amount = purchaseItems.getTotalPrice(items)
+            const amount = purchaseItems.getTotal(items)
 
             //Assert
             expect(amount).toBe(price)

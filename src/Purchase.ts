@@ -10,7 +10,7 @@ export default class Purchase{
             }
  
      
-      getTotalPrice(items:string) {
+      getTotal(items:string) {
     
          let total = 0
           
