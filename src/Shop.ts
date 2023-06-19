@@ -23,7 +23,7 @@ export default class Shop{
       }
      
       getOutOfStockItems(items:string){
-          
+
            const itemsList = items.split(',')
 
             let outOfStockItems:string[] =[]
@@ -33,7 +33,7 @@ export default class Shop{
                  
                  if(!this.store.hasItem(item)){
 
-                    outOfStockItems.push(this.store.getItem(item).getName())
+                    outOfStockItems.push(item)
                  }
                
             })
@@ -45,7 +45,7 @@ export default class Shop{
 
          if(!this.allItemsInStock(items)){
 
-               throw new Error(`Items ${this.getOutOfStockItems(items)} out of stock`)
+               throw new Error(`Items ${this.getOutOfStockItems(items)} are out of stock`)
          }
 
           
