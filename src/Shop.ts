@@ -23,7 +23,24 @@ export default class Shop{
           }
      
           return total
-     }
+       }
+
+          payBill(items:string,amt:number){
+                 
+               const total = this.getTotal(items)
+
+               if(amt>=total){
+                   
+                    const balance = amt-total
+                    console.log("Amount paid ")
+                    
+                    return balance
+               }else{
+
+
+               }
+                    
+          }
 
 
 }
