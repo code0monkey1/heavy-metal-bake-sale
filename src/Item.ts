@@ -1,25 +1,10 @@
-export default class Item {
-     constructor(
-      private readonly name: string, 
-      private readonly price: number,
-      private quantity: number,
-      private readonly purchaseCode: string) {}
+class Item{
 
-      
-      getName(){
-        return this.name
-      }
-
-      getPrice(){
-        return this.price
-      }
-
-      getQuantity(){
-        return this.quantity
-      }
-
-      getPurchaseCode(){
-        return this.purchaseCode
-      }
-
+  constructor(
+      private readonly name:string,
+      private readonly purchaseCode:string,
+      private amount:number,
+      private readonly price:number
+    ){}
+    
 }
