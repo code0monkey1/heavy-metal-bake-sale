@@ -114,9 +114,9 @@ describe('Shop', () => {
 
      })
 
-     describe('When money is less than', () => {
+     describe('When money is less than requited', () => {
             
-           
+          
            
      })
      
