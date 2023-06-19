@@ -12,7 +12,6 @@ describe('Item', () => {
         ])('item $item bought for $price',({item,price})=>{
              
             //Arrange
-
             const record :Record<string,Item> ={
                'B': new Item("Brownie","B",48,0.75),
                'M': new Item("Muffin","M",36,1),
@@ -21,10 +20,10 @@ describe('Item', () => {
             }
 
             //Act 
-             const amount = record[item] 
+            const amount = record[item].getPrice()
 
             //Assert
-             
+            expect(amount).toBe(price)
 
          })
 
