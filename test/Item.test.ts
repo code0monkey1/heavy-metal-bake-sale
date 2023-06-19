@@ -116,7 +116,20 @@ describe('Shop', () => {
 
      describe('When money is less than requited', () => {
             
-          
+           test.each([
+            {
+              items:'B,C,W',
+              amount:10
+            },
+              {
+              items:'B,C',
+              amount:10
+            },
+          ])('',({items,amount})=>{
+
+               const
+
+           })
            
      })
      
