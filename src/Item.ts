@@ -23,6 +23,12 @@ export default class Item{
   getPrice(): number {
     return this.price;
   }
-  
 
+  decrementQuantity():void{
+    this.quantity-= 1
+  }
+  
+  incrementQuantity():void{
+    this.quantity+=1
+  }
 }

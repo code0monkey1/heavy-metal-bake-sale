@@ -28,4 +28,9 @@ export default class Store{
         return this.store[item].getQuantity()
       }
 
+      decrementQuantity(item:string){
+      
+             this.store[item].decrementQuantity()
+      }
+
 }
