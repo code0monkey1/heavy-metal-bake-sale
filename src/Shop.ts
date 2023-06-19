@@ -9,9 +9,11 @@ export default class Shop{
       }
 
 
-      allItemsInStock(items:string[]):boolean{
-                    
-           for(const item of items){
+      allItemsInStock(items:string):boolean{
+        
+          const itemsList = items.split(',')
+
+           for(const item of itemsList){
                
                     if(!this.store.hasItem(item))
                          return false
@@ -20,7 +22,9 @@ export default class Shop{
            return true
       }
      
-      getOutOfStockItems(itemsList:string[]){
+      getOutOfStockItems(items:string){
+          
+           const itemsList = items.split(',')
 
             let outOfStockItems:string[] =[]
             
@@ -38,14 +42,16 @@ export default class Shop{
       }
 
       getTotal(items:string) {
+
+         if(!this.allItemsInStock(items)){
+
+               throw new Error(`Items ${this.getOutOfStockItems(items)} out of stock`)
+         }
+
           
          const itemList = items.split(',')
 
-         if(!this.allItemsInStock(itemList)){
-
-               throw new Error(`Items are out of stock`)
-         }
-
+     
          let total = 0
 
          for(const item of itemList){

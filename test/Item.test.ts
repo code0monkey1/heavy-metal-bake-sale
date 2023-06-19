@@ -74,12 +74,13 @@ describe('Shop', () => {
                'C': new Item("Cake Pops","C",0,1.35),
                'W' : new Item('Water','W',0,1.50)
             })
-               const purchaseItems = new Shop(store)
+               const shop = new Shop(store)
+
+              const result =shop.allItemsInStock(item)
               
-              //Act //Assert
-              expect(()=>purchaseItems.getTotal(item)).toThrowError(`The item ${item} is out of stock`)
-  
-           })
+              expect(result).toBe(`The item ${result} are out of stock`)
+          
+          })
   
         })
 
