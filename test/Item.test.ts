@@ -1,4 +1,5 @@
 import Item from "../src/Item"
+import Purchase from "../src/Purchase"
 
 describe('Item', () => {
          
@@ -12,15 +13,10 @@ describe('Item', () => {
         ])('item $item bought for $price',({item,price})=>{
              
             //Arrange
-            const record :Record<string,Item> ={
-               'B': new Item("Brownie","B",48,0.75),
-               'M': new Item("Muffin","M",36,1),
-               'C': new Item("Cake Pops","C",24,1.35),
-               'W' : new Item('Water','W',30,1.50)
-            }
+             const purchaseItems = new Purchase()
 
             //Act 
-            const amount = record[item].getPrice()
+            const amount = purchaseItems.getTotalPrice(item)
 
             //Assert
             expect(amount).toBe(price)
