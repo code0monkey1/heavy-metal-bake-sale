@@ -1,6 +1,6 @@
 import Store from "./Store";
 
-export default class Purchase{
+export default class Shop{
      
       private store :Store
 
@@ -24,6 +24,9 @@ export default class Purchase{
      
           return total
      }
+
+   
+     
 
 }
 
