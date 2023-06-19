@@ -1,7 +1,7 @@
 import Item from "../src/Item"
 
 describe('Item', () => {
-       
+         
       describe('single item', () => {
            
          it.each([
@@ -36,26 +36,38 @@ describe('Item', () => {
           {items:'M,B',price:1.75},
           {items:'B,W',price:2.25},
           {items:'W,C',price:2.85},
-        ])('item $item bought for $price',({items,price})=>{
+        ])('item $items bought for $price',({items,price})=>{
              
             //Arrange
-            const record :Record<string,Item> ={
+          
+            const amount = getTotalAmount(items)
+
+            //Assert
+            expect(amount).toBe(price)
+
+      })
+
+
+      
+})
+
+function getTotalAmount(items:string) :number {
+    
+     const record :Record<string,Item> ={
                'B': new Item("Brownie","B",48,0.75),
                'M': new Item("Muffin","M",36,1),
                'C': new Item("Cake Pops","C",24,1.35),
                'W' : new Item('Water','W',30,1.50)
             }
-            
-            const [firstItem,secondItem] = items.split(',')
-            //Act 
-            const amount1 = record[firstItem].getPrice()
-            const amount2 = record[secondItem].getPrice()
+ 
+         let total = 0
 
-            //Assert
-            expect(amount1+amount2).toBe(price)
+          items.split(',').forEach(item =>{
 
-         })
+              total+= record[item].getPrice()
+          })
+     
+          return total
+    }
 
-      })
-      
 })
