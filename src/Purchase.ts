@@ -1,55 +1,29 @@
-import Item from "./Item";
+import Store from "./Store";
 
 export default class Purchase{
      
-      private store :Record<string,Item>={
-               'B': new Item("Brownie","B",48,0.75),
-               'M': new Item("Muffin","M",36,1),
-               'C': new Item("Cake Pops","C",24,1.35),
-               'W' : new Item('Water','W',30,1.50)
-            };
-      
-      initialize(items:Record<string,Item> ){
-         this.store=items
+      private store :Store
+
+      constructor(store:Store){
+        this.store=store
       }
-     
+
       getTotal(items:string) {
     
          let total = 0
           
          const itemList = items.split(',')
 
-         itemList.forEach(item =>{
-
-              total+= this.store[item].getPrice()
-          })
+         for(const item of itemList){
+              
+               if(!this.store.hasItem(item))
+                   throw new Error(`The item ${item} is out of stock`)
+               
+              total+= this.store.getPrice(item)
+          }
      
           return total
      }
-     
-      hasItem(){
-
-      }
 
 }
 
-class Store{
-    
-      private store :Record<string,Item>={
-               'B': new Item("Brownie","B",48,0.75),
-               'M': new Item("Muffin","M",36,1),
-               'C': new Item("Cake Pops","C",24,1.35),
-               'W' : new Item('Water','W',30,1.50)
-            };
-      
-      initialize(items:Record<string,Item> ){
-         this.store=items
-      }
-
-
-      hasItem(item:string){
-            
-           this.store[item].getQuantity()>0
-
-      }
-}

@@ -1,5 +1,6 @@
 import Item from "../src/Item"
 import Purchase from "../src/Purchase"
+import Store from "../src/Store"
 
 describe('Purchase', () => {
         
@@ -15,7 +16,8 @@ describe('Purchase', () => {
           ])('item $item bought for $price',({item,price})=>{
                
               //Arrange
-               const purchaseItems = new Purchase()
+               const store = new Store()
+               const purchaseItems = new Purchase(store)
   
               //Act 
               const amount = purchaseItems.getTotal(item)
@@ -35,8 +37,9 @@ describe('Purchase', () => {
             {items:'B,W',price:2.25},
             {items:'W,C',price:2.85},
           ])('item $items bought for $price',({items,price})=>{
-           //Arrange
-               const purchaseItems = new Purchase()
+             //Arrange
+              const store = new Store()
+               const purchaseItems = new Purchase(store)
   
               //Act 
               const amount = purchaseItems.getTotal(items)
@@ -63,14 +66,8 @@ describe('Purchase', () => {
           ])('item $item should be out of stock',({item,price})=>{
                
               //Arrange
-               const purchaseItems = new Purchase()
-
-               purchaseItems.initialize({
-               'B': new Item("Brownie","B",0,0.75),
-               'M': new Item("Muffin","M",0,1),
-               'C': new Item("Cake Pops","C",0,1.35),
-               'W' : new Item('Water','W',0,1.50)
-              })
+               const store = new Store()
+               const purchaseItems = new Purchase(store)
               
               //Act 
               const amount = purchaseItems.getTotal(item)
