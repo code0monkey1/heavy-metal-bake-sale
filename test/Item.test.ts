@@ -29,7 +29,7 @@ describe('Item', () => {
 
       })
 
-         describe(' two items', () => {
+         describe('two items', () => {
            
          it.each([
           {items:'B,C',price:2.1},
@@ -45,10 +45,11 @@ describe('Item', () => {
                'C': new Item("Cake Pops","C",24,1.35),
                'W' : new Item('Water','W',30,1.50)
             }
-
+            
+            const [firstItem,secondItem] = items.split(',')
             //Act 
-            const amount1 = record[items[0]].getPrice()
-            const amount2 = record[items[1]].getPrice()
+            const amount1 = record[firstItem].getPrice()
+            const amount2 = record[secondItem].getPrice()
 
             //Assert
             expect(amount1+amount2).toBe(price)
