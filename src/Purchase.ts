@@ -13,8 +13,10 @@ export default class Purchase{
       getTotalPrice(items:string) {
     
          let total = 0
+          
+         const itemList = items.split(',')
 
-          items.split(',').forEach(item =>{
+          itemList.forEach(item =>{
 
               total+= this.store[item].getPrice()
           })
