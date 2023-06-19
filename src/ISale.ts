@@ -1,6 +1,6 @@
-export default interface ISale<T>{
+export default interface ISale{
     
-    purchase(item:T[],amount:number):void
+    purchase(item:[],amount:number):void
 
     balance():void
 

@@ -1,4 +1,4 @@
-import { TItem } from "./types"
+import { TItem, TItemRecord } from "./types"
 
 
 const item_price:Record<TItem,number>={
@@ -21,4 +21,40 @@ export const getTotalPrice=(list:string)=>{
     
     return tot
 
+}
+
+export const getInventory=()=>{
+
+   const inventory:TItemRecord[] =[
+              {
+                name:'Brownie',
+                quantity:48,
+                price:0.75,
+                purchaseCode:'B'
+
+              },
+               {
+                name:'Muffin',
+                quantity:36,
+                price:1,
+                purchaseCode:'M'
+
+              },
+               {
+                name:'Cake Pops',
+                quantity:24,
+                price:1.35,
+                purchaseCode:'C'
+
+              },
+               {
+                name:'Water',
+                quantity:30,
+                price:1.50,
+                purchaseCode:'W'
+
+              }
+            ]
+
+    return inventory
 }

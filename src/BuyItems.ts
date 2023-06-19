@@ -1,8 +1,8 @@
 import ISale from "./ISale";
 import Item from "./Item";
-import { TItemRecord } from "./types";
+import { TItem, TItemRecord } from "./types";
 
-export default class BuyItems implements ISale<Item> {
+export default class BuyItems implements ISale {
   
   private items :Item[]=[]
 
@@ -20,7 +20,7 @@ export default class BuyItems implements ISale<Item> {
       )
   }
   
-  purchase(item: Item[], amount: number): void {
+  purchase(items: TItem[], amount: number): void {
     throw new Error("Method not implemented.");
   }
   balance(): void {

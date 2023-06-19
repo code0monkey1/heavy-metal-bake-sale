@@ -1,11 +1,30 @@
 import BuyItems from "../src/BuyItems"
 import Item from "../src/Item"
-import { getTotalPrice } from "../src/ItemsHelper"
+import { getInventory, getTotalPrice } from "../src/ItemsHelper"
+import { TItem } from "../src/types"
+
 
 describe('Buy Items', () => {
     
      describe('Gives total amount, when items in stock',()=>{
 
+
+         describe('for single item',()=>{
+               test.each([
+            {items:"B",total:getTotalPrice("B")},
+            {items:"M",total:getTotalPrice("M")},
+            {items:"C",total:getTotalPrice("C")},
+            {items:"W",total:getTotalPrice("W")}
+        ])(`gives total : $total for $items`,({items,total})=>{
+            
+            const sut = new BuyItems(getInventory())
+            
+            const item_list:TItem[] = items.split(',') as TItem[]
+
+            sut.purchase(item_list,20)
+            
+         })
+         })
         
          test.each([
             {items:"B,M,C",total:getTotalPrice("B,M,C")},
