@@ -59,21 +59,18 @@ describe('Purchase', () => {
         describe('single item', () => {
              
            it.each([
-            {item:'B',price:0.75},
-            // {item:'M',price:1},
-            // {item:'C',price:1.35},
-            // {item:'W',price:1.50},
-          ])('item $item should be out of stock',({item,price})=>{
+            {item:'B'},
+            {item:'M'},
+            {item:'C'},
+            {item:'W'},
+          ])('item $item should be out of stock',({item})=>{
                
               //Arrange
                const store = new Store()
                const purchaseItems = new Purchase(store)
               
-              //Act 
-              const amount = purchaseItems.getTotal(item)
-  
-              //Assert
-              expect(amount).toBe(price)
+              //Act //Assert
+              expect(()=>purchaseItems.getTotal(item)).toThrowError(`The item ${item} is out of stock`)
   
            })
   
