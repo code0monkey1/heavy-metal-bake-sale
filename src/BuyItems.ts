@@ -27,7 +27,7 @@ export default class BuyItems implements ISale {
       if(!item)
         throw new Error(`Item ${items[0]} not found`)
       
-      return -1
+      return item.getQuantity()
   }
   balance(): void {
     throw new Error("Method not implemented.");
