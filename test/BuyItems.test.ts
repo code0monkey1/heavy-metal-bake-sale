@@ -21,8 +21,9 @@ describe('Buy Items', () => {
             
             const item_list:TItem[] = items.split(',') as TItem[]
 
-            sut.purchase(item_list,20)
-            
+            const result = sut.purchase(item_list,20)
+                
+            expect(result).toBe(total)
             
          })
          })
