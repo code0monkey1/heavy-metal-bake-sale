@@ -37,16 +37,18 @@ describe('Shop', () => {
             {items:'B,W',price:2.25},
             {items:'W,C',price:2.85},
           ])('item $items bought for $price',({items,price})=>{
+             
              //Arrange
               const store = new Store()
-               const purchaseItems = new Shop(store)
+              const purchaseItems = new Shop(store)
   
               //Act 
               const amount = purchaseItems.getTotal(items)
   
               //Assert
               expect(amount).toBe(price)
-  
+              
+
         })
         
       
@@ -83,7 +85,41 @@ describe('Shop', () => {
   
         })
 
+         describe('two items', () => {
+             
+           it.each([
+            {item:'B,M'},
+            {item:'M,C'},
+            {item:'C,W'},
+            {item:'W,B'},
+          ])('item $item should be out of stock',({item})=>{
+               
+              //Arrange
+               const store = new Store()
+               
+               store.initialize({
+               'B': new Item("Brownie","B",0,0.75),
+               'M': new Item("Muffin","M",0,1),
+               'C': new Item("Cake Pops","C",0,1.35),
+               'W' : new Item('Water','W',0,1.50)
+            })
+               const shop = new Shop(store)
+
+              //Act //Assert
+              expect(()=>shop.getTotal(item)).toThrowError(`Items ${item} are out of stock`)
+  
+           })
+  
+        })
+
      })
+
+     describe('When money is less than', () => {
+            
+           
+           
+     })
+     
      
 
 })
