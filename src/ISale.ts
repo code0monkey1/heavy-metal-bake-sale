@@ -1,6 +1,6 @@
 export default interface ISale{
     
-    purchase(item:[],amount:number):void
+    purchase(item:[],amount:number):string
 
     balance():void
 

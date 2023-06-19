@@ -20,11 +20,14 @@ export default class BuyItems implements ISale {
       )
   }
   
-  purchase(items: TItem[], amount: number): void {
+  purchase(items: TItem[], amount: number): string {
         
        const item = this.items.find( i => i.getPurchaseCode()===items[0])
 
-        return item.getAmou
+      if(!item)
+        throw new Error(`Item ${items[0]} not found`)
+      
+      return `Item ${item.getName()} purchased for ${item.getPrice()}`
   }
   balance(): void {
     throw new Error("Method not implemented.");
