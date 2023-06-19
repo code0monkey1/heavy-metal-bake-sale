@@ -20,6 +20,8 @@ export default class Shop{
                    throw new Error(`The item ${item} is out of stock`)
                
               total+= this.store.getPrice(item)
+              
+              this.store.decrementQuantity(item)
           }
      
           return total
@@ -33,11 +35,12 @@ export default class Shop{
                    
                     const balance = amt-total
                     console.log("Amount paid ")
-                    
+                     
+
                     return balance
                }else{
 
-
+       
                }
                     
           }
