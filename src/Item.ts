@@ -7,7 +7,6 @@ export default class Item{
       private readonly price:number
     ){}
 
-
   getName(): string {
     return this.name;
   }
