@@ -67,6 +67,12 @@ describe('Purchase', () => {
                
               //Arrange
                const store = new Store()
+               store.initialize({
+               'B': new Item("Brownie","B",0,0.75),
+               'M': new Item("Muffin","M",0,1),
+               'C': new Item("Cake Pops","C",0,1.35),
+               'W' : new Item('Water','W',0,1.50)
+            })
                const purchaseItems = new Purchase(store)
               
               //Act //Assert
