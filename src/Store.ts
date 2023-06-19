@@ -13,11 +13,9 @@ export default class Store{
          this.store=items
       }
 
-
       hasItem(item:string):boolean{
             
           return  this.store[item].getQuantity()>0
-
       }
 
       getPrice(item:string):number{
@@ -29,5 +27,5 @@ export default class Store{
 
         return this.store[item].getQuantity()
       }
-      
+
 }
