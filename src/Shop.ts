@@ -81,7 +81,7 @@ export default class Shop{
                     return balance
                }else{
 
-                    return `Not enout`
+                    throw new Error("Not enough money.")
                }
                     
           }

@@ -125,7 +125,7 @@ describe('Shop', () => {
               items:'B,C',
               amount:1
             },
-          ])('',({items,amount})=>{
+          ])('When items : $items are bought with amount: $amount',({items,amount})=>{
 
               const store = new Store()
                
@@ -138,7 +138,6 @@ describe('Shop', () => {
 
              const shop = new Shop(store)
             
-
             expect(()=>shop.payBill(items,amount))
             .toThrowError("Not enough money.")
            
