@@ -29,4 +29,5 @@ export default class Store{
 
         return this.store[item].getQuantity()
       }
+      
 }
