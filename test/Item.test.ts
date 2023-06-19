@@ -119,20 +119,32 @@ describe('Shop', () => {
            test.each([
             {
               items:'B,C,W',
-              amount:10
+              amount:1
             },
               {
               items:'B,C',
-              amount:10
+              amount:1
             },
           ])('',({items,amount})=>{
 
-               const
+              const store = new Store()
+               
+               store.initialize({
+               'B': new Item("Brownie","B",10,0.75),
+               'M': new Item("Muffin","M",10,1),
+               'C': new Item("Cake Pops","C",10,1.35),
+               'W' : new Item('Water','W',10,1.50)
+             })
 
-           })
+             const shop = new Shop(store)
+            
+
+            expect(()=>shop.payBill(items,amount))
+            .toThrowError("Not enough money.")
            
      })
-     
+
+    })
      
 
 })
