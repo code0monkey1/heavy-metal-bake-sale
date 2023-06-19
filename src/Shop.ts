@@ -8,20 +8,56 @@ export default class Shop{
         this.store=store
       }
 
+
+      allItemsInStock(items:string[]):boolean{
+                    
+           for(const item of items){
+               
+                    if(!this.store.hasItem(item))
+                         return false
+           }
+
+           return true
+      }
+     
+      getOutOfStockItems(itemsList:string[]){
+
+            let outOfStockItems:string[] =[]
+            
+            itemsList.forEach(item =>{
+
+                 
+                 if(!this.store.hasItem(item)){
+
+                    outOfStockItems.push(this.store.getItem(item).getName())
+                 }
+               
+            })
+
+            return outOfStockItems
+      }
+
       getTotal(items:string) {
-    
-         let total = 0
           
          const itemList = items.split(',')
 
+         if(!this.allItemsInStock(itemList)){
+
+               throw new Error(`Items are out of stock`)
+         }
+
+         let total = 0
+
          for(const item of itemList){
-              
+
                if(!this.store.hasItem(item))
                    throw new Error(`The item ${item} is out of stock`)
-               
-              total+= this.store.getPrice(item)
               
-              this.store.decrementQuantity(item)
+              const storeItem = this.store.getItem(item)
+
+              total+= storeItem.getPrice()
+
+              storeItem.decrementQuantity()
           }
      
           return total
@@ -35,12 +71,11 @@ export default class Shop{
                    
                     const balance = amt-total
                     console.log("Amount paid ")
-                     
 
                     return balance
                }else{
 
-       
+                    return `Not enout`
                }
                     
           }

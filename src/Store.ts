@@ -17,20 +17,11 @@ export default class Store{
             
           return  this.store[item].getQuantity()>0
       }
-
-      getPrice(item:string):number{
-           
-        return this.store[item].getPrice()
-      }
-
-      getQuantity(item:string):number{
-
-        return this.store[item].getQuantity()
-      }
-
-      decrementQuantity(item:string){
       
-             this.store[item].decrementQuantity()
+      getItem(item:string){
+
+        return this.store[item]
       }
+
 
 }
