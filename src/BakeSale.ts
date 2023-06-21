@@ -7,6 +7,7 @@ export class BakeSale implements Sale{
     constructor(store:IStore){
     this.store=store
     }
+
     getTotal(items:string[]): number {
 
       let total=0
@@ -25,8 +26,9 @@ export class BakeSale implements Sale{
     
       for (const item in items){
   
-            if(!  this.store.hasItemInStock(item))
+            if(!this.store.hasItemInStock(item))
                 throw new Error(`Item ${item} is out of stock`)
+                      
       }
 
       return true
@@ -35,7 +37,7 @@ export class BakeSale implements Sale{
 
     makeSale(items: string[], amount: number):string{
        
-        
+        this.hasItemsInStock(items)
           
         const total=this.getTotal(items)
         
