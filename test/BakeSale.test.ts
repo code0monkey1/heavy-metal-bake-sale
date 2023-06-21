@@ -69,9 +69,9 @@ describe('BakeSale', () => {
           it.each([
           
             {items:['B'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'B'}]},
-            {items:['M'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'M'}]},
-            {items:['C'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'C'}]},
-            {items:['W'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'W'}]},
+            {items:['M'],amount:10,initializer:[{name:'Muffin',price:0.75,quantity:0,code:'M'}]},
+            {items:['C'],amount:10,initializer:[{name:'Cake Pops',price:0.75,quantity:0,code:'C'}]},
+            {items:['W'],amount:10,initializer:[{name:'Water',price:0.75,quantity:0,code:'W'}]},
           ])('for item $items , should throw error , when initialized with quantity  0',({items,amount,initializer})=>{
                  
                 //Arrange
