@@ -8,5 +8,14 @@ export type Item={
 export type Sale={
   
   makeSale:(items:string[],amount:number)=>string
-  
+
+}
+
+export interface Store{
+     
+  hasItem:(code:string)=>Boolean
+  initialize(items:Item[]):void
+
+  getItem:(code:string)=>Item
+
 }
