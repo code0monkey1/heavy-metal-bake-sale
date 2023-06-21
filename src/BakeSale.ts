@@ -1,6 +1,8 @@
-export class BakeSale {
+import { TBakeSale, TItem } from './types';
 
-  private items: Item[] = [
+export class BakeSale{
+
+  private  items: Item[] = [
     new Item('Brownie', 'B', 48, 0.75),
     new Item('Muffin', 'M', 36, 1.00),
     new Item('Cake Pop', 'C', 24, 1.35),
@@ -40,7 +42,7 @@ export class BakeSale {
     return this.items.find((item) => item.getPurchaseCode() === code);
   }
 
-  private getTotalAmount(items: Item[]): number {
+  private getTotalAmount(items: TItem[]): number {
     let total = 0;
 
     for (const item of items) {
@@ -51,7 +53,8 @@ export class BakeSale {
   }
 }
 
-class Item {
+class Item implements TItem{
+
   constructor(
     private readonly name: string,
     private readonly purchaseCode: string,
