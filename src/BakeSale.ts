@@ -8,7 +8,24 @@ export class BakeSale implements Sale{
      this.store=store
     }
 
-    getOutOfStockItems(items:string[]):string[]{
+    makeSale(items: string[], amount: number):string{
+       
+        if(!this.hasItemsInStock(items)){
+
+           const outOfStock = this.getOutOfStock(items)
+
+           throw new Error(`${outOfStock}'s are out of stock`)
+        }
+          
+        const total=this.getTotal(items)
+        
+        const balance = amount - total
+
+        return `The balance is $${balance.toFixed(2)}`
+        
+    }
+
+    getOutOfStock(items:string[]):string[]{
        
        const outOfStock=[]
        
@@ -20,7 +37,7 @@ export class BakeSale implements Sale{
 
           }
        }
-       
+
      return outOfStock;
     }
 
@@ -54,20 +71,6 @@ export class BakeSale implements Sale{
       return true
     }
 
-    makeSale(items: string[], amount: number):string{
-       
-        if(!this.hasItemsInStock(items)){
-           const outOfStock = 
-           throw new Error(`${itemName}'s are out of stock`)
-        }
-          
-        const total=this.getTotal(items)
-        
-        const balance = amount - total
-
-        return `The balance is $${balance.toFixed(2)}`
-        
-    }
 
     private getItemByCode(code:string):Item{
         
