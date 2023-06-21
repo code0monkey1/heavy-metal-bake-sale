@@ -16,7 +16,7 @@ describe('BakeSale', () => {
                const mockStore:IStore = new Store()
 
                 mockStore.initialize([
-      
+    
                   {name:'Brownie',price:0.75,quantity:48,code:'B'},
                   {name:'Muffin',price:1.00,quantity:36,code:'M'},
                   {name:'Cake Pops',price:1.35,quantity:24,code:'C'},
