@@ -7,29 +7,40 @@ export class BakeSale implements Sale{
     constructor(store:IStore){
     this.store=store
     }
-   getTotal(items:string[]): number {
+    getTotal(items:string[]): number {
 
-    throw new Error("Method not implemented.");
-    
-   }
-
-    makeSale(items: string[], amount: number):string{
-          
-        let total=0
+      let total=0
         
         for( const itemCode of items){
             
             const item :Item= this.getItemByCode(itemCode)
 
-            if(item.quantity===0){
-              throw new Error(`The item ${item.name} is out of stock`)
-            }
-
             total+=item.price
             
         }
+       return total
+    }
+
+    hasItemsInStock(items:string[]):boolean{
+    
+      for (const item in items){
+  
+            if(!  this.store.hasItemInStock(item))
+                throw new Error(`Item ${item} is out of stock`)
+      }
+
+      return true
+    
+    }
+
+    makeSale(items: string[], amount: number):string{
+       
+        
+          
+        const total=this.getTotal(items)
         
         const balance = amount - total
+
         return `The balance is $${balance.toFixed(2)}`
         
     }
