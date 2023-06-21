@@ -5,8 +5,8 @@ export type Item={
      code:string  
 }
 
-export type Sale={
+export interface Sale{
 
   makeSale:(items:Item[],amount:number)=>string
-  
+
 }
