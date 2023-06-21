@@ -1,10 +1,10 @@
 import { BakeSale } from "../src/BakeSale";
 import { Store } from "../src/Store";
-import { IStore, Item } from '../src/types';
+import { IStore } from '../src/types';
 
 describe('BakeSale', () => {
      
-    describe('all items in stock',()=>{
+    describe('items in stock',()=>{
 
         it.each([
           {items:['B'],amount:10,balance:9.25},
@@ -12,7 +12,8 @@ describe('BakeSale', () => {
           {items:['C'],amount:10,balance:8.65},
           {items:['W'],amount:10,balance:8.50},
         ])('for single item $items ,when given amount $amount ,should return a balance of $$balance',({items,amount,balance})=>{
-               //Arrange
+               
+              //Arrange
                const mockStore:IStore = new Store()
 
                 mockStore.initialize([
@@ -28,7 +29,6 @@ describe('BakeSale', () => {
 
                //Act 
                const result =bakeSale.makeSale(items,amount)
-              
 
                //Assert
                expect(result).toBe(`The balance is $${balance.toFixed(2)}`)
@@ -62,19 +62,19 @@ describe('BakeSale', () => {
 
     })
 
-    describe('items are out of stock', () => {
-          
+    describe('items out of stock', () => {
 
         describe('single item', () => {
           
           it.each([
           
-            {items:['B'],amount:10,balance:9.25,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'B'}]},
-            {items:['M'],amount:10,balance:9.00,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'M'}]},
-            {items:['C'],amount:10,balance:8.65,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'C'}]},
-            {items:['W'],amount:10,balance:8.50,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'W'}]},
-          ])('for item $items , should throw error , when initialized with quantity  0',({items,amount,balance,initializer})=>{
-                 //Arrange
+            {items:['B'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'B'}]},
+            {items:['M'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'M'}]},
+            {items:['C'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'C'}]},
+            {items:['W'],amount:10,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'W'}]},
+          ])('for item $items , should throw error , when initialized with quantity  0',({items,amount,initializer})=>{
+                 
+                //Arrange
                  const mockStore:IStore = new Store()
   
                   mockStore.initialize(initializer)
