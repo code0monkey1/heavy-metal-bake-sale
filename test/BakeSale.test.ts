@@ -82,7 +82,7 @@ describe('BakeSale', () => {
                  const bakeSale = new BakeSale(mockStore)
   
                  //Act //Assert
-                expect(()=>bakeSale.makeSale(items,amount)).toThrowError(`Item ${items[0]} is out of stock`)
+                expect(()=>bakeSale.makeSale(items,amount)).toThrowError(`${initializer[0].name}'s are out of stock`)
                 
   
           })
