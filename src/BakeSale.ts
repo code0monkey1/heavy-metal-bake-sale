@@ -31,12 +31,7 @@ export class BakeSale implements Sale{
 
   private getItemByCode(code:string):Item{
       
-     const item = this.store.getItem(code)
-
-     if(!item)
-          throw new Error(`Item with code ${code} not found`)
-
-     return item
+     return this.store.getItem(code)
 
   }
   
