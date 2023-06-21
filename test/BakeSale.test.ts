@@ -62,6 +62,35 @@ describe('BakeSale', () => {
 
     })
 
+    describe('invalid item code',()=>{
+        describe('single item', () => {
+          
+          it.each([
+          
+            {items:['X']},
+            {items:['Y']},
+            {items:['Z']},
+            {items:['P']},
+          ])('for item $items , should throw error , when initialized with quantity  0',({items})=>{
+                 
+                //Arrange
+                 const mockStore:IStore = new Store()
+                 
+                 mockStore.initialize([])
+  
+                 const bakeSale = new BakeSale(mockStore)
+  
+                 //Act //Assert
+                expect(()=>bakeSale.makeSale(items,10)).toThrowError((`Item with code ${items[0]} not found`))
+  
+          })
+        })
+
+        
+    })
+
+    })
+
     describe('items out of stock', () => {
 
         describe('single item', () => {
@@ -90,5 +119,4 @@ describe('BakeSale', () => {
 
         
     })
-    
-})
+  
