@@ -29,8 +29,8 @@ export class BakeSale implements Sale{
             if(!this.store.hasItemInStock(item)){
 
                 const itemName=this.store.getItem(item).name
-                
-                throw new Error(`Item ${itemName} is out of stock`)
+
+                throw new Error(`${itemName}'s are out of stock`)
             }
                       
       }
