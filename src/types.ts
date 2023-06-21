@@ -8,4 +8,5 @@ export type Item={
 export type Sale={
   
   makeSale:(items:string[],amount:number)=>string
+  
 }

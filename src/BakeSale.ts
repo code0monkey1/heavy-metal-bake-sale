@@ -42,7 +42,5 @@ export class BakeSale implements Sale{
      return item
 
   }
-
-
   
 }
