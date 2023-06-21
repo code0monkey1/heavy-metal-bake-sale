@@ -24,7 +24,7 @@ export class BakeSale implements Sale{
 
     hasItemsInStock(items:string[]):boolean{
     
-      for (const item in items){
+      for (const item of items){
   
             if(!this.store.hasItemInStock(item))
                 throw new Error(`Item ${item} is out of stock`)
