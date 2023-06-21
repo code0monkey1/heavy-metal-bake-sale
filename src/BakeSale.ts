@@ -36,7 +36,6 @@ export class BakeSale implements Sale{
       }
 
       return true
-    
     }
 
     makeSale(items: string[], amount: number):string{
