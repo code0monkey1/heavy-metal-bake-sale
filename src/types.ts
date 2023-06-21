@@ -13,3 +13,10 @@ export type TItem ={
  getPrice:()=>number
 
 }
+
+export interface IStore{
+
+  items:TItem[],
+  initialize:(items:TItem[])=>void
+  
+}
