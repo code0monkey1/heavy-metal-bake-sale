@@ -1,6 +1,6 @@
-import { Item, Store } from './types';
+import { IStore, Item } from './types';
 
-const  myStore :Store={
+const  Store :IStore={
   hasItem: function (code: string): Boolean {
     throw new Error('Function not implemented.');
   },
@@ -11,3 +11,5 @@ const  myStore :Store={
     throw new Error('Function not implemented.');
   }
 }
+
+export default Store;

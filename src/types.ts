@@ -11,7 +11,7 @@ export type Sale={
 
 }
 
-export interface Store{
+export interface IStore{
      
   hasItem:(code:string)=>Boolean
   initialize(items:Item[]):void

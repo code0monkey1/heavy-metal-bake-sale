@@ -1,10 +1,10 @@
-import { Item, Sale, Store } from "./types";
+import { IStore, Item, Sale } from "./types";
 
 export class BakeSale implements Sale{
    
-    private store:Store
+    private store:IStore
 
-    constructor(store:Store){
+    constructor(store:IStore){
     this.store=store
     }
 

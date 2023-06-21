@@ -1,5 +1,5 @@
 import { BakeSale } from "../src/BakeSale";
-import { Item, Store } from '../src/types';
+import { IStore, Item } from '../src/types';
 
 describe('BakeSale', () => {
      
@@ -14,7 +14,7 @@ describe('BakeSale', () => {
                 
                let mockItems:Item[]
                //Arrange
-               const mockStore:Store = {
+               const mockStore:IStore = {
                   
                  hasItem: function (code: string): Boolean {
                    return true
