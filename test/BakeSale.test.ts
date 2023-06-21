@@ -64,25 +64,28 @@ describe('BakeSale', () => {
 
     describe('items are out of stock', () => {
           
-        it.each([
-          {items:['B'],amount:10,balance:9.25,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'B'}]},
-          {items:['M'],amount:10,balance:9.00,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'M'}]},
-          {items:['C'],amount:10,balance:8.65,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'C'}]},
-          {items:['W'],amount:10,balance:8.50,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'W'}]},
-        ])('for single item $items should throw error , when initialized with $initializer',({items,amount,balance,initializer})=>{
-               //Arrange
-               const mockStore:IStore = new Store()
 
-                mockStore.initialize(initializer)
-
-               const bakeSale = new BakeSale(mockStore)
-
-               //Act //Assert
-              expect(()=>bakeSale.makeSale(items,amount)).toThrowError(`Item ${items[0]} is out of stock`)
-              
-               
-
-
+        describe('single item', () => {
+          
+          it.each([
+          
+            {items:['B'],amount:10,balance:9.25,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'B'}]},
+            {items:['M'],amount:10,balance:9.00,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'M'}]},
+            {items:['C'],amount:10,balance:8.65,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'C'}]},
+            {items:['W'],amount:10,balance:8.50,initializer:[{name:'Brownie',price:0.75,quantity:0,code:'W'}]},
+          ])('for single item $items should throw error , when initialized with $initializer',({items,amount,balance,initializer})=>{
+                 //Arrange
+                 const mockStore:IStore = new Store()
+  
+                  mockStore.initialize(initializer)
+  
+                 const bakeSale = new BakeSale(mockStore)
+  
+                 //Act //Assert
+                expect(()=>bakeSale.makeSale(items,amount)).toThrowError(`Item ${items[0]} is out of stock`)
+                
+  
+          })
         })
 
         
