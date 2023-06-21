@@ -5,9 +5,9 @@ export class BakeSale implements Sale{
   private items:Item[]=[
    
      {name:'Brownie',price:0.75,quantity:48,code:'B'},
-     {name:'Brownie',price:0.75,quantity:48,code:'B'},
-     {name:'Brownie',price:0.75,quantity:48,code:'B'},
-     {name:'Brownie',price:0.75,quantity:48,code:'B'}
+     {name:'Muffin',price:1.00,quantity:36,code:'M'},
+     {name:'Cake Pops',price:1.35,quantity:24,code:'C'},
+     {name:'Water',price:1.50,quantity:30,code:'W'}
            
   ]
 
