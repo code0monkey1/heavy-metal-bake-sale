@@ -5,7 +5,7 @@ export class BakeSale implements Sale{
     private store:IStore
 
     constructor(store:IStore){
-    this.store=store
+     this.store=store
     }
 
     getTotal(items:string[]): number {
