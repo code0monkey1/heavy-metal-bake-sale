@@ -17,13 +17,13 @@ describe('BakeSale', () => {
                const mockStore:Store = {
                   
                  hasItem: function (code: string): Boolean {
-                   throw new Error("Function not implemented.");
+                   return true
                  },
                  initialize: function (items: Item[]): void {
                   mockItems=items
                  },
                  getItem: function (code: string): Item {
-                   throw new Error("Function not implemented.");
+                   return  {name:'Brownie',price:0.75,quantity:48,code:'B'}
                  }
                }
                   mockStore.initialize([
