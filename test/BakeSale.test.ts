@@ -1,4 +1,5 @@
 import { BakeSale } from "../src/BakeSale";
+import { Store } from "../src/Store";
 import { IStore, Item } from '../src/types';
 
 describe('BakeSale', () => {
@@ -11,22 +12,10 @@ describe('BakeSale', () => {
           {items:['C'],amount:10,balance:8.65},
           {items:['W'],amount:10,balance:8.50},
         ])('for single item $items ,when given amount $amount ,should return a balance of $$balance',({items,amount,balance})=>{
-                
-               let mockItems:Item[]
                //Arrange
-               const mockStore:IStore = {
-                  
-                 hasItem: function (code: string): Boolean {
-                   return true
-                 },
-                 initialize: function (items: Item[]): void {
-                  mockItems=items
-                 },
-                 getItem: function (code: string): Item {
-                   return  {name:'Brownie',price:0.75,quantity:48,code:'B'}
-                 }
-               }
-                  mockStore.initialize([
+               const mockStore:IStore = new Store()
+
+                mockStore.initialize([
       
                   {name:'Brownie',price:0.75,quantity:48,code:'B'},
                   {name:'Muffin',price:1.00,quantity:36,code:'M'},
