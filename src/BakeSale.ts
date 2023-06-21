@@ -1,3 +1,4 @@
+import { Item } from './Item';
 import { TItem } from './types';
 
 export class BakeSale{
@@ -42,7 +43,7 @@ export class BakeSale{
     return this.items.find((item) => item.getPurchaseCode() === code);
   }
 
-  private getTotalAmount(items: TItem[]): number {
+  private getTotalAmount(items: Item[]): number {
     let total = 0;
 
     for (const item of items) {
@@ -50,32 +51,5 @@ export class BakeSale{
     }
 
     return total;
-  }
-}
-
-class Item implements TItem{
-
-  constructor(
-    private readonly name: string,
-    private readonly purchaseCode: string,
-    private  quantity: number,
-    private readonly price: number
-  ) {}
-
-  getName(): string {
-    return this.name;
-  }
-
- 
-  getPurchaseCode(): string {
-    return this.purchaseCode;
-  }
-
-  getQuantity(): number {
-    return this.quantity;
-  }
-
-  getPrice(): number {
-    return this.price;
   }
 }

@@ -1,6 +1,6 @@
 import { TItem } from "./types";
 
-class Item implements TItem{
+export class Item implements TItem{
 
   constructor(
     private readonly name: string,
