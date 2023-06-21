@@ -2,7 +2,7 @@ import { BakeSale } from "../src/BakeSale"
 
 describe('BakeSale', () => {
      
-    describe('When all items are in stock',()=>{
+    describe('all items in stock',()=>{
 
         it.each([
           {items:['B'],amount:10,balance:9.25},
@@ -12,7 +12,14 @@ describe('BakeSale', () => {
         ])('for single item $items ,when given amount $amount ,should return a balance of $$balance',({items,amount,balance})=>{
 
                //Arrange
-               const bakeSale = new BakeSale()
+               const bakeSale = new BakeSale([
+   
+     {name:'Brownie',price:0.75,quantity:48,code:'B'},
+     {name:'Muffin',price:1.00,quantity:36,code:'M'},
+     {name:'Cake Pops',price:1.35,quantity:24,code:'C'},
+     {name:'Water',price:1.50,quantity:30,code:'W'}
+           
+  ])
 
                //Act 
                const result =bakeSale.makeSale(items,amount)
@@ -28,7 +35,14 @@ describe('BakeSale', () => {
           ])('double items',({items,amount,balance})=>{
 
                //Arrange
-               const bakeSale = new BakeSale()
+               const bakeSale = new BakeSale([
+   
+     {name:'Brownie',price:0.75,quantity:48,code:'B'},
+     {name:'Muffin',price:1.00,quantity:36,code:'M'},
+     {name:'Cake Pops',price:1.35,quantity:24,code:'C'},
+     {name:'Water',price:1.50,quantity:30,code:'W'}
+           
+  ])
 
                //Act 
                const result =bakeSale.makeSale(items,amount)
