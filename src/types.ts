@@ -5,19 +5,5 @@ export type Item={
      code:string  
 }
 
-export type Sale={
-  
-  makeSale(items:string[],amount:number):string
 
-  getTotal(items:string[]):number
 
-}
-
-export interface IStore{
-     
-  hasItemInStock(code:string):Boolean
-  initialize(items:Item[]):void
-
-  getItem(code:string):Item
-
-}

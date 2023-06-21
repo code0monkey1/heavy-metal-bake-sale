@@ -1,4 +1,5 @@
-import { IStore, Item } from './types';
+import { IStore } from './interfaces/Store';
+import { Item } from './types';
 
 
 export class Store implements IStore{

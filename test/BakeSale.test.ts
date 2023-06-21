@@ -1,6 +1,6 @@
 import { BakeSale } from "../src/BakeSale";
 import { Store } from "../src/Store";
-import { IStore } from '../src/types';
+import { IStore } from "../src/interfaces/Store";
 
 describe('BakeSale', () => {
      

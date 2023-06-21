@@ -1,4 +1,6 @@
-import { IStore, Item, Sale } from "./types";
+import { Sale } from "./interfaces/Sale";
+import { IStore } from "./interfaces/Store";
+import { Item } from "./types";
 
 export class BakeSale implements Sale{
    
@@ -10,7 +12,7 @@ export class BakeSale implements Sale{
 
     makeSale(items: string[], amount: number):string{
        
-        if(!this.hasItemsInStock(items)){
+        if(!this.hasInStock(items)){
 
            const outOfStock = this.getOutOfStock(items)
 
@@ -31,11 +33,8 @@ export class BakeSale implements Sale{
        
        for(const item of items){
 
-          if(!this.store.hasItemInStock(item)){
-
-            outOfStock.push(this.store.getItem(item).name)
-
-          }
+          if(!this.store.hasItemInStock(item))
+              outOfStock.push(this.store.getItem(item).name)
        }
 
      return outOfStock;
@@ -52,20 +51,17 @@ export class BakeSale implements Sale{
             total+=item.price
             
         }
+
        return total
     }
 
-    hasItemsInStock(items:string[]):boolean{
+    hasInStock(items:string[]):boolean{
     
       for (const item of items){
   
-            if(!this.store.hasItemInStock(item)){
-
-                const itemName=this.store.getItem(item).name
-                return false;
-                throw new Error(`${itemName}'s are out of stock`)
-            }
-                      
+            if(!this.store.hasItemInStock(item))
+                return false
+             
       }
 
       return true
