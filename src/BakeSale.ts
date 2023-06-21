@@ -10,8 +10,18 @@ export class BakeSale implements Sale{
 
     getOutOfStockItems(items:string[]):string[]{
        
-       return items.filter(item => !this.store.hasItemInStock(item))
+       const outOfStock=[]
+       
+       for(const item of items){
 
+          if(!this.store.hasItemInStock(item)){
+
+            outOfStock.push(this.store.getItem(item).name)
+
+          }
+       }
+       
+     return outOfStock;
     }
 
     getTotal(items:string[]): number {
@@ -46,7 +56,10 @@ export class BakeSale implements Sale{
 
     makeSale(items: string[], amount: number):string{
        
-        this.hasItemsInStock(items)
+        if(!this.hasItemsInStock(items)){
+           const outOfStock = 
+           throw new Error(`${itemName}'s are out of stock`)
+        }
           
         const total=this.getTotal(items)
         
