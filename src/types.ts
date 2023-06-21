@@ -13,7 +13,7 @@ export type Sale={
 
 export interface IStore{
      
-  hasItem(code:string):Boolean
+  hasItemInStock(code:string):Boolean
   initialize(items:Item[]):void
 
   getItem(code:string):Item
