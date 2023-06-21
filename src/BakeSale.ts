@@ -1,11 +1,11 @@
-import { Item, Sale } from "./types";
+import { Item, Sale, Store } from "./types";
 
 export class BakeSale implements Sale{
    
-   private items:Item[]=[]
+    private store:Store
 
-    constructor(items:Item[]){
-    this.items=items
+    constructor(store:Store){
+    this.store=store
     }
 
   makeSale(items: string[], amount: number):string{
@@ -31,7 +31,7 @@ export class BakeSale implements Sale{
 
   private getItemByCode(code:string):Item{
       
-     const item = this.items.find( i => i.code===code)
+     const item = this.store.getItem(code)
 
      if(!item)
           throw new Error(`Item with code ${code} not found`)
