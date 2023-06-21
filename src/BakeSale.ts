@@ -1,5 +1,4 @@
 import { Item } from './Item';
-import { TItem } from './types';
 
 export class BakeSale{
 

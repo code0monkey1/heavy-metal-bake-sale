@@ -1,5 +1,5 @@
 export type TBakeSale ={
-   items:TItem[],
+  items:TItem[],
   runSale:(purchaseCodes: string[], amountPaid: number)=>void,
   getItemByCode:(code: string)=>TItem|undefined,
   getTotalAmount:(items: TItem[])=>number
