@@ -8,6 +8,12 @@ export class BakeSale implements Sale{
      this.store=store
     }
 
+    getOutOfStockItems(items:string[]):string[]{
+       
+       return items.filter(item => !this.store.hasItemInStock(item))
+
+    }
+
     getTotal(items:string[]): number {
 
       let total=0
@@ -29,7 +35,7 @@ export class BakeSale implements Sale{
             if(!this.store.hasItemInStock(item)){
 
                 const itemName=this.store.getItem(item).name
-
+                return false;
                 throw new Error(`${itemName}'s are out of stock`)
             }
                       
