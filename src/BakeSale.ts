@@ -1,14 +1,20 @@
 import { Item } from './Item';
+import { IStore } from './types';
 
 export class BakeSale{
-
+   
+  public store;
+   
   private  items: Item[] = [
     new Item('Brownie', 'B', 48, 0.75),
     new Item('Muffin', 'M', 36, 1.00),
     new Item('Cake Pop', 'C', 24, 1.35),
     new Item('Water', 'W', 30, 1.50),
   ];
-
+  
+  constructor(store:IStore){
+     this.store=store
+  }
   public runSale(purchaseCodes: string[], amountPaid: number): string {
     const itemsToPurchase: Item[] = [];
 

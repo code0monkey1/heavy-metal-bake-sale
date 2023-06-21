@@ -1,4 +1,5 @@
 import { BakeSale } from "../src/BakeSale"
+import { Item } from "../src/Item"
 import { IStore, TItem } from "../src/types"
 
 describe('BakeSale', () => {
@@ -19,10 +20,16 @@ describe('BakeSale', () => {
 
              items: [],
              initialize: function (items: TItem[]): void {
-                throw new Error("Function not implemented.")
+                this.items=items;
              }
           }
-
+           
+          mockStore.initialize([
+               new Item('Brownie', 'B', 48, 0.75),
+               new Item('Muffin', 'M', 36, 1.00),
+               new Item('Cake Pop', 'C', 24, 1.35),
+               new Item('Water', 'W', 30, 1.50),
+            ])
            
            const sale = new BakeSale(mockStore)
 
