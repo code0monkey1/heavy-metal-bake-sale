@@ -6,13 +6,10 @@ describe('BakeSale', () => {
 
         it.each([
           {items:['B'],amount:10,balance:9.25}
-        ])('single item',({items,amount,balance})=>{
+        ])('for single item $items ,when given amount $amount ,should return a balance of $$balance',({items,amount,balance})=>{
 
                //Arrange
                const bakeSale = new BakeSale()
-              //  const items=['B']
-              //  const amount=10
-              //  const balance=9.25
 
                //Act 
                const result =bakeSale.makeSale(items,amount)
@@ -32,7 +29,6 @@ describe('BakeSale', () => {
 
                //Act 
                const result =bakeSale.makeSale(items,amount)
-              
 
                //Assert
                expect(result).toBe(`The balance is $${balance.toFixed(2)}`)
@@ -40,4 +36,10 @@ describe('BakeSale', () => {
         })
 
     })
+
+    describe('items are out of stock', () => {
+         
+        
+    })
+    
 })
