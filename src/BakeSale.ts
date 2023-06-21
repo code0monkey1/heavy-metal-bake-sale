@@ -1,4 +1,4 @@
-import { TBakeSale, TItem } from './types';
+import { TItem } from './types';
 
 export class BakeSale{
 
