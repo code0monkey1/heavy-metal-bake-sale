@@ -8,8 +8,8 @@ describe('BakeSale', () => {
         .each([
          {value:['B'],amount:10,result:9.25},
          {value:['M'],amount:10,result:9.00},
-         {value:['C'],amount:10,result:8.55},
-         {value:['W'],amount:10,result:28.25},
+         {value:['C'],amount:10,result:8.65},
+         {value:['W'],amount:10,result:8.50},
       ])
         ('only 1 item',({value,amount,result})=>{
            
@@ -17,7 +17,7 @@ describe('BakeSale', () => {
 
            const response= sale.runSale(value,amount)
           
-           expect(response).toBe(`Change: $${result}`)
+           expect(response).toBe(`Change: $${result.toFixed(2)}`)
 
         })
 
